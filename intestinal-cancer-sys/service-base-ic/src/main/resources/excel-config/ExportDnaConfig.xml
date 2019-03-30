@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE style-config SYSTEM "./exportConfig_1_1.dtd">
+<excel>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    序号
+                </td>
+                <td>
+                    SID
+                </td>
+                <td>
+                    姓名
+                </td>
+                <td>
+                    所属地区
+                </td>
+                <td>
+                    所属区
+                </td>
+                <td>
+                    所属社区
+                </td>
+                <td>
+                    分组方案（A：A组，B：B组，C：C组，Cd：C组低位，Cg：C组高危）
+                </td>
+                <td>
+                    发放日期
+                </td>
+                <td>
+                    粪便DNA编码
+                </td>
+                <td>
+                    粪便DNA结果（1：阴性 2：阳性 3：无效）
+                </td>
+                <td>
+                    FIT-DNA得分
+                </td>
+                <td>
+                    FIT定量化结果
+                </td>
+            </tr>
+            <iterator property="exportResultList">
+                <tr>
+                    <td>
+                        ${id}
+                    </td>
+
+                    <td>
+                        ${sid}
+                    </td>
+                    <td>
+                        ${name}
+                    </td>
+                    <td>
+                        ${areaName}
+                    </td>
+                    <td>
+                        ${depName}
+                    </td>
+                    <td>
+                        ${nickName}
+                    </td>
+                    <td>
+                        ${group}
+                    </td>
+                    <td>
+                        ${dna_community_inform_work_time}
+                    </td>
+                    <td>
+                        ${dnaCode}
+                    </td>
+                    <td>
+                        ${dnaCheckResult}
+                    </td>
+                    <td>
+                        ${dnaCheckGoal}
+                    </td>
+                    <td>
+                        ${dnaCheckQuantum}
+                    </td>
+                </tr>
+            </iterator>
+        </table>
+    </body>
+</excel>

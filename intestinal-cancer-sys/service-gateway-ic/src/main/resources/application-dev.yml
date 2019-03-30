@@ -1,0 +1,115 @@
+server:
+    port: 8096 #启动端口
+
+spring:
+    jmx: 
+      default-domain: GatewayServer
+    application:
+      name: GatewayServer
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      #url: jdbc:mysql://192.168.96.231:2297/intestinal_cancer_sys?useUnicode=true&amp;characterEncoding=UTF-8&amp;TreatTinyAsBoolean=false&amp;autoReconnect=true&amp;rewriteBatchedStatements=TRUE&amp;failOverReadOnly=false&amp;autoReconnect=true
+      #username: yycloud
+      #password: yycloud
+      url: jdbc:mysql://127.0.0.1:3306/base_intestinal_cancer_sys?useUnicode=true&amp;characterEncoding=UTF-8&amp;TreatTinyAsBoolean=false&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;autoReconnect=true
+      username: root
+      password: root
+      type: com.alibaba.druid.pool.DruidDataSource
+      filters: stat,wall,log4j
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.showSqlMillis=5000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 1 from druid
+      testWhileIdle: true
+      #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+      testOnBorrow: false
+      #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      testOnReturn: false
+    # jackson时间格式化
+    redis:
+       hostName: 192.168.1.8
+       port: 6379
+       password:
+       timeout: 2000
+       database: 9
+    pool:
+       max-active: 8
+       min-idle: 0
+       max-idle: 8
+       max-wait: 10000
+    http:
+      multipart:
+        maxFileSize: 100MB # 设置单个文件的最大长度
+        maxRequestSize: 100MB # 设置最大的请求文件的大小
+zuul:
+  sensitive-headers: "*"
+  routes:
+    service-base: 
+      serviceId: base
+      path: /base/**
+      stripPrefix: true
+    service-wechat:
+      serviceId: manage
+      path: /service-wechat-ic/**
+      stripPrefix: false
+    service-hospital: 
+      serviceId: wechat
+      path: /service-wechat-ic/**
+      stripPrefix: false 
+  host: 
+    socket-timeout-millis: 30000
+    connect-timeout-millis: 10000
+eureka:
+     client:
+        serviceUrl:
+          defaultZone: http://localhost:8090/eureka
+     instance:
+        leaseRenewalIntervalInSeconds: 10 #心跳间隔时间,默认是30秒
+        leaseExpirationDurationInSeconds: 15 #最后一次心跳时间后leaseExpirationDurationInSeconds秒就认为是下线了，默认是90秒
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread: 
+            timeoutInMilliseconds: 300000  #单位毫秒，
+ribbon:
+  ReadTimeout: 300000
+
+login:
+  authCode:
+    codeTime: 3600   #短信验证码失效时间 线上3分钟  每天每个人验证码会上限  测试环境1小时
+
+ytx:
+  gateway:
+    token:
+      expire: 3600 #60分钟 token过期时间 单位秒
+      timeout: 600 #10分钟 token超时时间 单位秒
+    permissions: 
+      expire: 86400 #24小时 权限过期时间 单位秒
+    httpresource: 
+      expire: 7200 #2H
+
+we: 
+  cookie: 
+    ip: 192.168.177.11 
+  image: 
+    exTime: 180
+      
+http:
+    maxTotal: 100
+    defaultMaxPerRoute: 20
+    connectTimeout: 1000
+    connectionRequestTimeout: 500
+    socketTimeout: 10000
+    staleConnectionCheckEnabled: true
+logging:
+  config:
+    classpath: log4j2.xml
+

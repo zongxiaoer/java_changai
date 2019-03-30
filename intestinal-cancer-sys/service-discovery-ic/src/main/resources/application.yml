@@ -1,0 +1,15 @@
+server:
+    port: 8090 #启动端口
+spring:
+    jmx:
+      default-domain: DiscoveryServer
+    application:
+      name: DiscoveryServer
+eureka:
+     instance:
+        hostname: localhost        
+     client:
+        register-with-eureka: false
+        fetch-registry: false
+        serviceUrl: 
+          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

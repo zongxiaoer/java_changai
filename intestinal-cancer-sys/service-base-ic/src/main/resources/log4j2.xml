@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info">
+	<Properties>
+		<Property name="LOG_HOME">/app/sys_log/service-baseServer</Property>
+	</Properties>
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread][%file:%line] - %msg%n" />
+		</Console>
+		<RollingFile name="log" fileName="${LOG_HOME}/itsys-service.log"
+			filePattern="${LOG_HOME}/%d{yyyy-MM-dd-HH}.log" append="true">
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss}   %-5level [%thread][%file:%line] - %msg%n" />
+			<Policies>
+				<!-- 每天生成一个日志文件 -->
+				<TimeBasedTriggeringPolicy modulate="true" interval="1" />
+			</Policies>
+			<!-- 最大保存文件数 -->
+			<DefaultRolloverStrategy max="180" />
+		</RollingFile>
+	</appenders>
+	<loggers>
+		<root level="info">
+			<appender-ref ref="Console" />
+			<appender-ref ref="log" />
+		</root>
+	</loggers>
+</configuration>

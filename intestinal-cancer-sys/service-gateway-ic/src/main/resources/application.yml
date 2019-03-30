@@ -1,0 +1,13 @@
+spring:
+    profiles:
+      active: test   #发布环境 dev:开发、test：测试、prod：线上  线上发布时需要改成 prod
+
+
+auth:
+  cookie:
+    # 登录图片校验码使用的uuID 存入cookie domain地址
+#    ip: itsys.yuntongxun.com   #线上
+#    ip: 123.56.129.28          #测试
+    ip: 192.168.177.11          #本地
+  image:
+    exTime: 180      #图片校验码失效时间 3分钟

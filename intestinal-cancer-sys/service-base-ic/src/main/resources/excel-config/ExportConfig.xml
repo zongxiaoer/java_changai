@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE style-config SYSTEM "./exportConfig_1_1.dtd">
+<excel>
+	<body>
+		<table>
+			<tr>
+				<td>
+					 姓名
+				</td>
+				<td>
+					年龄
+				</td>
+			</tr>
+			<iterator property="list">
+				<tr>
+					<td>
+						${str}
+					</td>
+
+					<td>
+						${str1}
+					</td>
+				</tr>
+			</iterator>
+		</table>
+	</body>
+</excel>

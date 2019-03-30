@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE style-config SYSTEM "./styleConfig_1_1.dtd">
+<style-config>
+	<font-style>
+		<font name="test1" face="楷体" size="15" color="GREEN" Bold="true" underLine=""/>
+	</font-style>
+	<cell-style>
+		<cell name="cell1" align="center" backgroundColor="GOLD" fillstyle="SOLID_FOREGROUND" fontStyle="test1" width="5000">
+			<border type="top" lineType="BORDER_THIN" color="black" />
+			<border type="left" lineType="BORDER_THIN" color="black" />
+			<border type="right" lineType="BORDER_THIN" color="black" />
+			<border type="bottom" lineType="BORDER_THIN" color="black" />
+		</cell>
+		<cell name="cell2" align="center" backgroundColor="GOLD" fillstyle="SOLID_FOREGROUND" fontStyle="test1" >
+			<border type="top" lineType="BORDER_THIN" color="black" />
+			<border type="left" lineType="BORDER_THIN" color="black" />
+			<border type="right" lineType="BORDER_THIN" color="black" />
+			<border type="bottom" lineType="BORDER_THIN" color="black" />
+		</cell>
+		<cell name="cell3" align="center" backgroundColor="GOLD" fillstyle="SOLID_FOREGROUND" fontStyle="test1" wrapped="true">
+			<border type="top" lineType="BORDER_THIN" color="black" />
+			<border type="left" lineType="BORDER_THIN" color="black" />
+			<border type="right" lineType="BORDER_THIN" color="black" />
+			<border type="bottom" lineType="BORDER_THIN" color="black" />
+		</cell>
+	</cell-style>
+</style-config>

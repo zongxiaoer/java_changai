@@ -1,0 +1,11 @@
+<!ELEMENT excel (body)>
+<!ELEMENT body (table*,iterator*)>
+<!ELEMENT table (tr+,iterator*)>
+<!ATTLIST table width CDATA #IMPLIED>
+<!ELEMENT iterator (table*,tr*,td*)>
+<!ATTLIST iterator property CDATA #IMPLIED>
+<!ELEMENT tr (td+,iterator*)>
+<!ELEMENT td (#PCDATA)>
+<!ATTLIST td rowspan CDATA #IMPLIED>
+<!ATTLIST td colspan CDATA #IMPLIED>
+<!ATTLIST td style CDATA #IMPLIED>
